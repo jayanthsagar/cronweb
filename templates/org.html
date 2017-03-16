@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+
+{% block CSS %}
+body {
+	background: #FFF;
+	text-align: center;
+	font-family: georgia;
+}
+
+#container {
+	margin: 0 auto;
+	width: 960px;
+}
+
+img{
+	display: inline-block;
+}
+h1 {
+	font-size: 4em;
+	border-bottom: 1px solid #dddddd;
+	margin: 4%;
+}
+h2 {
+	font-size: 3.5em;
+	border-bottom: 1px solid #dddddd;
+	margin: 2%;
+}
+
+p {
+	font-size: 2em;
+}
+
+.field {
+	 padding: 2%;
+	 margin: 1px;
+}
+
+.textbox {
+	font-family: monospace;
+
+}
+
+.textbox:focus {
+	outline: none;
+	border: 2px solid #6EA2DE;
+	box-shadow: 0 0 2px #95B9C7;
+
+}
+
+label {
+
+
+	margin-left: 1%;
+}
+
+input { display: inline-block;}
+
+{% end %}
+
+{% block title %}
+			Github Utils
+{% end %}
+
+{% block header %}
+	Labels based search filter
+{% end %}
+
+{% block body %}
+<form action="/Org_based_search" method="post">
+	<div class="field">
+		<label> <h3>Organization ID : </h3></label> <input type="text" name="organization" id="organization" class="textbox"><br>
+  <label> <h3>Labels to be filtered : </h3></label> <input type="text" name="labels" id="labels" class="textbox">
+	</div>
+
+	<div class="field">
+		<input type="submit" value = "submit" style="width: 80; height: 30"></input>
+
+	</div>
+</form>
+{% end %}

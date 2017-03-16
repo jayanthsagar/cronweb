@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+
+{% block CSS %}
+body {
+	background: #FFF;
+	text-align: center;
+	font-family: georgia;
+  font-size: 2em;
+}
+
+#container {
+	margin: 0 auto;
+	width: 960px;
+}
+
+img{
+	display: inline-block;
+}
+h1 {
+	font-size: 4em;
+	border-bottom: 1px solid #dddddd;
+	margin: 4%;
+}
+h2 {
+	font-size: 3.5em;
+	border-bottom: 1px solid #dddddd;
+	margin: 2%;
+}
+
+p {
+	font-size: 2em;
+}
+
+.field {
+	 padding: 2%;
+	 margin: 1px;
+}
+
+.textbox {
+	font-family: monospace;
+
+}
+
+.textbox:focus {
+	outline: none;
+	border: 2px solid #6EA2DE;
+	box-shadow: 0 0 2px #95B9C7;
+
+}
+
+label {
+
+
+	margin-left: 1%;
+}
+
+input { display: inline-block;}
+
+{% end %}
+
+{% block title %}
+			Cron server
+{% end %}
+
+{% block header %}
+Cron jobs currently running on the server
+{% end %}
+
+{% block body %}
+<a href=./Org_based_search>Organization based search</a><br>
+<a href=./Institiue_based_search>Institute based search</a><br>
+<a href=./Lab_based_search>Labs based search</a>
+{% end %}

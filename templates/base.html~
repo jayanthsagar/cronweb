@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>{% block title %}Github Utilities{% end %}</title>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<style type="text/css">{% block CSS %}{% end %}</style>
+</head>
+<body>
+<div id="container">
+<header>
+<h2>{% block header %}Github Utilities{% end %}</h2>
+</header>
+<div id="main">
+{% block body %}{% end %}
+</div>
+<footer>
+{% block footer %}
+<h3><a href="http://github.com/jayanthsagar/github-utils">Repo on Github</a><h3>
+{% end %}
+</footer>
+</div>
+</body>
+</html>
