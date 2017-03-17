@@ -37,8 +37,12 @@ class List_of_jobs(tornado.web.RequestHandler):
         post_data = dict(urlparse.parse_qsl(self.request.body))
         c = Crontab.Crontab()
         logging.info("Recieved POST request with post-data: "+ str(post_data))
-        c.run_job(post_data['cronjob'])
-        self.render('result.html')
+        a = 'FALSE'
+        a = c.run_job(post_data['cronjob'])
+        if a =='TRUE':
+            self.render('result.html')
+        else:
+            self.render('error.html')
 
 if __name__ == "__main__":
         tornado.options.parse_command_line()

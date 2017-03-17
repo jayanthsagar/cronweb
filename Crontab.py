@@ -39,6 +39,7 @@ class Crontab:
                 output =subprocess.check_output(value)
                 f = open("./templates/result.html",'w')
                 f.write(output)
+                return 'TRUE'
 
 c = Crontab()
 if __name__ == '__main__':
