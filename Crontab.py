@@ -12,6 +12,7 @@ class Crontab:
         string =output.split()
         logging.info("current running crons: "+ str(string))
         jobs=[]
+# Ignore content variable. It is jus for styling purpose
         content='''{% extends "base.html" %}{% block CSS %}body {    background: #FFF;    text-align: center;    font-family: georgia;}#container {    margin: 0 auto;    width: 960px;}img{    display: inline-block;}h1 {    font-size: 4em;    border-bottom: 1px solid #dddddd;    margin: 4%;}h2 {    font-size: 3.5em;    border-bottom: 1px solid #dddddd;    margin: 2%;}p {    font-size: 2em;}.field {     padding: 2%;     margin: 1px;}.textbox {    font-family: monospace;}.textbox:focus {    outline: none;    border: 2px solid #6EA2DE;    box-shadow: 0 0 2px #95B9C7;}label {    margin-left: 1%;}input { display: inline-block;}{% end %}{% block title %}            cronweb{% end %}{% block header %}    List of jobs {% end %}{% block body %}'''+output
         for i in range(0, len(string),6):
             jobs.append(string[i-1])
