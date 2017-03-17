@@ -1,1 +1,3 @@
-Crontab.pyc
+templates/*
+*.pyc
+*.swp
