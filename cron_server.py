@@ -33,13 +33,12 @@ class List_of_jobs(tornado.web.RequestHandler):
        c.Get_jobs()
        self.render('list.html')
 
-#    def post(self):
-#        post_data = dict(urlparse.parse_qsl(self.request.body))
-#        c = Get_issues.Get_issues()
-#        c.get_all_issues('org',str(post_data['organization']),None)
-#        c.write_all_issues_to_a_file_after_applying_filter(post_data['labels'])
-#        self.render('result.html')
-#
+    def post(self):
+        post_data = dict(urlparse.parse_qsl(self.request.body))
+        c = Crontab.Crontab()
+        logging.info("Recieved POST request with post-data: "+ str(post_data))
+        c.run_job(str(post_data['cronjob']))
+        self.render('result.html')
 
 if __name__ == "__main__":
         tornado.options.parse_command_line()
