@@ -23,12 +23,12 @@ class Crontab:
 #        jobs_dict={}
         for i, v in enumerate(jobs):
             jobs_dict[i]= v
-            content +='<form action="/list" method="post"><div class="field"><label> job '+str(i+1)+':<input type="text" value="'+v+'" name ="cronjob" id="cronjob" class="textbox"><input type="submit"  value = "run this job"></input></div></form>'
+            content +='<form action="/list" method="post"><div class="field"><label> job '+str(i+1)+':<input type="text" value="'+v+'" name ="cronjob" id="cronjob" class="textbox"></input><label>arguments: <input type="text" value=" " name="arguments" id="arguments"class="textbox"></input><input type="submit"  value = "run this job"></input></div></form>'
         content +='{% end %}'
         print jobs_dict
         f.write(content)
 
-    def run_job(self,job):
+    def run_job(self,job,arguments=" "):
 #        print job
         for key,value in jobs_dict.iteritems():
 #            print 'name:'+str(name)+'key'+str(key)+'job:'+job
@@ -36,7 +36,7 @@ class Crontab:
 #               f.write("The script which you are trying to run is probably not configured in crontab...! Please check once again") 
             if value == job:
 #                print 'key '+str(key)
-                output =subprocess.check_output(value)
+                output =subprocess.check_output([value,arguments])
                 f = open("./templates/result.html",'w')
                 f.write(output)
                 return 'TRUE'

@@ -1,12 +1,8 @@
 #!/bin/python
-# Services exposed by the VM Manager
+# Services exposed by cronweb
 # The REST url :
-# http://host-name/api/1.0/disk-usage
-# http://host-name/api/1.0/running-time
-# http://host-name/api/1.0/mem-usage
-# http://host-name/api/1.0/running-processes
-# http://host-name/api/1.0/cpu-load
-# http://host-name/api/1.0/execute/<command>
+# http://host-name/
+# http://host-name/list
 import urlparse
 import os
 import os.path
@@ -38,7 +34,7 @@ class List_of_jobs(tornado.web.RequestHandler):
         c = Crontab.Crontab()
         logging.info("Recieved POST request with post-data: "+ str(post_data))
         a = 'FALSE'
-        a = c.run_job(post_data['cronjob'])
+        a = c.run_job(post_data['cronjob'],post_data['arguments'])
         if a =='TRUE':
             self.render('result.html')
         else:
