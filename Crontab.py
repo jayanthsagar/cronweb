@@ -1,5 +1,3 @@
-#from pycron import *
-#from bash import bash
 import subprocess
 import re
 import logging
@@ -29,13 +27,8 @@ class Crontab:
         f.write(content)
 
     def run_job(self,job,arguments=" "):
-#        print job
         for key,value in jobs_dict.iteritems():
-#            print 'name:'+str(name)+'key'+str(key)+'job:'+job
-#            if value not in self.Get_jobs.jobs:
-#               f.write("The script which you are trying to run is probably not configured in crontab...! Please check once again") 
             if value == job:
-#                print 'key '+str(key)
                 output =subprocess.check_output([value,arguments])
                 f = open("./templates/result.html",'w')
                 f.write(output)
