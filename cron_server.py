@@ -53,7 +53,7 @@ if __name__ == "__main__":
 		        template_path=os.path.join(os.path.dirname(__file__), "templates"),debug = True)
 	http_server = tornado.httpserver.HTTPServer(app)
 	current_file_path = os.path.dirname(os.path.abspath(__file__))
-	options.port = 8081
+	options.port = 8080
 	logging.info("cronweb_server: It will run on port : "+str(options.port))
 	http_server.listen(options.port)
 	tornado.ioloop.IOLoop.instance().start()
