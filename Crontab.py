@@ -29,7 +29,7 @@ class Crontab:
     def run_job(self,job,arguments=" "):
         for key,value in jobs_dict.iteritems():
             if value == job:
-                output =subprocess.check_output([value,arguments])
+                output =subprocess.check_output(value+arguments,shell=True)
                 f = open("./templates/result.html",'w')
                 f.write(output)
                 return 'TRUE'
